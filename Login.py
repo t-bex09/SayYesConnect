@@ -1,26 +1,32 @@
 from tkinter import *
-
+from main import get_users
 
 def login():
     master = Tk()
-    Label(master, text='Username').grid(row=0)
-    Label(master, text='Password').grid(row=1)
-    first_name = StringVar()
-    last_name = StringVar()
-    first_name_entry = Entry(master, textvariable=first_name)
-    last_name_entry = Entry(master, textvariable=last_name)
+    master.configure(bg="#3569A3")
+    Label(master, text='Username',bg="#F1CCD8").grid(row=0)
+    Label(master, text='Password',bg="#F1CCD8").grid(row=1)
+    username = StringVar()
+    password = StringVar()
+    username_entry = Entry(master, textvariable=username)
+    password_entry = Entry(master, textvariable=password)
     
-    first_name_entry.grid(row=0, column=1)
-    last_name_entry.grid(row=1, column=1)
+    username_entry.grid(row=0, column=1)
+    password_entry.grid(row=1, column=1)
 
-    def get_names():  # Use nonlocal to update the global variables
-        fname = first_name_entry.get()
-        lname = last_name_entry.get()
-        print("Username: ", fname)
-        print("Password: ", lname)
+    def attempt_login():  # Use nonlocal to update the global variables
+        username = username_entry.get()
+        password = password_entry.get()
+        users = get_users()
+        for user in users:
+            if user.username == username and user.password == password:
+                master.destroy()
+                print("great sucess-Borat")
+                return True
         master.destroy()
+        login()
 
-    submit_button = Button(master, text="Submit", command=get_names)
+    submit_button = Button(master, text="Submit", command=attempt_login,bg="#F1CCD8")
     submit_button.grid(row=2, columnspan=2)
 
     master.mainloop()
