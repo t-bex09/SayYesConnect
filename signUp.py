@@ -1,7 +1,7 @@
 from tkinter import *
 
 
-def display():
+def display(screen):
     master = Tk()
     Label(master, text='First Name').grid(row=0)
     Label(master, text='Last Name').grid(row=1)
