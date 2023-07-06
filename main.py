@@ -1,6 +1,9 @@
 from tkinter import *
 from Login import *
 from signUp import *
+global screen_height
+global screen_width
+
 def create_page():
     # Create the Tkinter window
     window = Tk(className="SayYes Connect")
@@ -22,7 +25,8 @@ def create_page():
     # Run the Tkinter event loop
     window.mainloop()
 
-
+def set_dimensions(screen):
+    return True
 
 if __name__ == "__main__":
     create_page()
