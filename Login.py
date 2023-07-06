@@ -1,6 +1,6 @@
 from tkinter import *
-from main import get_users
-
+import main
+from Feed import *
 def login():
     master = Tk()
     master.configure(bg="#3569A3")
@@ -17,11 +17,11 @@ def login():
     def attempt_login():  # Use nonlocal to update the global variables
         username = username_entry.get()
         password = password_entry.get()
-        users = get_users()
+        users = main.get_users()
         for user in users:
             if user.username == username and user.password == password:
                 master.destroy()
-                print("great sucess-Borat")
+                create_feed(user)
                 return True
         master.destroy()
         login()

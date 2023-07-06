@@ -1,7 +1,8 @@
 from tkinter import *
 from Login import *
 from signUp import *
-Users = []
+from generator import generate_random_users
+Users = generate_random_users(50)
 Companies = []
 #font = alata
 def create_page():
