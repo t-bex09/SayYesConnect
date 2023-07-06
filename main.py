@@ -1,5 +1,4 @@
-import tkinter as gui
-
-screen = gui.Tk(className="SayYes Connect")
+from tkinter import *
+screen = Tk(className="SayYes Connect")
 
 screen.mainloop()
