@@ -1,6 +1,7 @@
 from tkinter import *
-
-
+from User import User
+from main import add_user
+from main import *
 def signUp():
     master = Tk()
     master.geometry("300x250")
@@ -13,6 +14,7 @@ def signUp():
     Label(master, text='Major',bg="#E0B7B7").grid(row=5)
     Label(master, text='Degree Level',bg="#E0B7B7").grid(row=6)
     Label(master, text='Current Occupation',bg="#E0B7B7").grid(row=7)
+    Label(master, text='Current Compnay',bg="#E0B7B7").grid(row=8)
     first_name = StringVar()
     last_name = StringVar()
     age = IntVar()
@@ -21,6 +23,7 @@ def signUp():
     major = StringVar()
     degree = StringVar()
     occupation = StringVar()
+    company = StringVar()
     first_name_entry = Entry(master, textvariable=first_name)
     last_name_entry = Entry(master, textvariable=last_name)
     age_entry = Entry(master)
@@ -29,6 +32,7 @@ def signUp():
     major_entry = Entry(master, textvariable=major)
     degree_entry = Entry(master, textvariable=degree)
     occupation_entry = Entry(master, textvariable=occupation)
+    company_entry = Entry(master, textvariable=company)
     
     first_name_entry.grid(row=0, column=1)
     last_name_entry.grid(row=1,column=1)
@@ -38,6 +42,7 @@ def signUp():
     major_entry.grid(row=5, column=1)
     degree_entry.grid(row=6, column=1)
     occupation_entry.grid(row=7, column=1)
+    company_entry.grid(row=8,column=1)
 
     def get_names():  # Use nonlocal to update the global variables
         fname = first_name_entry.get()
@@ -48,9 +53,13 @@ def signUp():
         major = major_entry.get()
         degree = degree_entry.get()
         occupation = occupation_entry.get()
+        company = company_entry.get()
+        new_user = User(fname,lname,age,gender,college,major,degree,occupation,company)
+        add_user(new_user)
+        print(get_users()[0])
         master.destroy()
 
-    submit_button = Button(master, text="Submit", command=get_names,bg="#E0B7B7")
-    submit_button.grid(row=8, columnspan=5)
+    submit_button = Button(master, text="Submit", command=get_names,bg="#F7A1C4")
+    submit_button.grid(row=9, columnspan=5)
 
     master.mainloop()

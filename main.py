@@ -1,7 +1,8 @@
 from tkinter import *
 from Login import *
 from signUp import *
-
+Users = []
+Companies = []
 
 def create_page():
     # Create the Tkinter window
@@ -32,6 +33,14 @@ def create_page():
     # Run the Tkinter event loop
     window.mainloop()
 
+def get_users():
+    return Users
+def add_user(user):
+    Users.append(user)
+def get_companies():
+    return Companies
+def add_company(company):
+    Companies.append(company)
 
 def set_dimensions(screen):
     global screen_height
