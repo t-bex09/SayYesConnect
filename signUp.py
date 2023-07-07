@@ -65,7 +65,8 @@ def signUp():
         company = company_entry.get()
         username = username_entry.get()
         password = password_entry.get()
-        new_user = User(fname,lname,age,gender,college,major,degree,occupation,company,username,password)
+        struggles = struggles_entry.get()
+        new_user = User(fname,lname,age,gender,college,major,degree,occupation,company,username,password,struggles)
         main.add_user(new_user)
         master.destroy()
 

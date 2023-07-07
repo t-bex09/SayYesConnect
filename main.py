@@ -5,7 +5,7 @@ from generator import generate_random_users
 from PIL import Image, ImageTk
 import PIL.Image
 Users = generate_random_users(50)
-Users.append(User("dfjda","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","cpw","cpw"))
+Users.append(User("dfjda","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","cpw","cpw",'jsaf'))
 Companies = []
 #font = alata
 

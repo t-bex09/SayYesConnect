@@ -13,8 +13,8 @@ def create_feed(current_user):
     current_user_frame = Frame(master, bg="#3569A3")
     current_user_frame.place(relx=0.6, rely=0.4, relwidth=0.33, relheight=1.0)
     
-    # Create a label to display the current user
-    current_user_label = Label(current_user_frame, text=f"Current User: {current_user}", pady=10, bg="#F1CCD8")
+    # Create a label to display the current user's bio
+    current_user_label = Label(current_user_frame, text=current_user.bio(), pady=10, bg="#F1CCD8")
     current_user_label.pack(fill="x")
     
     # Create a frame for displaying other users
@@ -49,8 +49,8 @@ def create_feed(current_user):
         frame2 = Frame(master, bg="#3569A3")
         frame2.place(relx=0.6, rely=0.4, relwidth=0.33, relheight=1.0)
         
-        # Create a label to display the current user
-        current_user_label2 = Label(frame2, text=f"Current User: {user}", pady=10, bg="#F1CCD8")
+        # Create a label to display the user's bio
+        current_user_label2 = Label(frame2, text=user.bio(), pady=10, bg="#F1CCD8")
         current_user_label2.pack(fill="x")
     
     # Create buttons for other users
