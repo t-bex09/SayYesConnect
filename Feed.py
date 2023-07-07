@@ -2,7 +2,6 @@ from main import *
 from tkinter import *
 from PIL import Image, ImageTk
 import PIL.Image
-
 def create_feed(current_user):
     master = Tk(className="Profiles")
     get_dimensions(master)
@@ -35,7 +34,10 @@ def create_feed(current_user):
     
     # Create a frame inside the Canvas to hold the users
     users_frame = Frame(canvas, bg="#F1CCD8")
-    canvas.create_window((0, 0), window=users_frame, anchor="nw")
+    users_frame.pack(fill="both", expand=True)
+    
+    # Create a window inside the Canvas
+    canvas.create_window((0, 0), window=users_frame, anchor="center")
     
     # Get all users except the current user
     users = get_users()
@@ -56,7 +58,7 @@ def create_feed(current_user):
     # Create buttons for other users
     for user in other_users:
         button = Button(users_frame, text=str(user), command=lambda user=user: show_user(user), pady=10, bg="#F1CCD8")
-        button.pack(fill="x", pady=20)
+        button.pack( pady=20,anchor="center")
     
     master.mainloop()
 def get_dimensions(screen):
