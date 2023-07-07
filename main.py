@@ -2,9 +2,30 @@ from tkinter import *
 from Login import *
 from signUp import *
 from generator import generate_random_users
+from PIL import Image, ImageTk
+import PIL.Image
 Users = generate_random_users(50)
+Users.append(User("dfjda","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","jdsdf","cpw","cpw"))
 Companies = []
 #font = alata
+
+def picture_background(window, image_path):
+    set_dimensions(window)
+    # Load the image using PIL
+    image = Image.open(image_path)
+    # Resize the image to fit the window dimensions
+    image = image.resize((screen_width, screen_height))
+    # Convert the image to Tkinter-compatible format
+    image_tk = ImageTk.PhotoImage(image)
+    
+    # Create a Canvas widget
+    canvas = Canvas(window, width=screen_width, height=screen_height)
+    canvas.pack(fill="both", expand=True)
+    
+    # Set the image as the canvas background
+    canvas.create_image(0, 0, image=image_tk, anchor="nw")
+    canvas.image = image_tk  # Keep a reference to the image
+
 def create_page():
     # Create the Tkinter window
     window = Tk(className="SayYes Connect")
@@ -12,6 +33,7 @@ def create_page():
     window.geometry(f"{screen_width}x{screen_height}")
     # Set the background color
     window.configure(bg="#3569A3")  # Set the color name or use hex code
+    picture_background(window, "SAYYES_buffallo_logo-1.png")
     # Create a frame for centering the text box
     frame = Frame(window)
     frame.pack(pady=20)
