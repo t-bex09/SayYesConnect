@@ -1,7 +1,7 @@
 from tkinter import *
 import main
 from Feed import *
-def login():
+def login(window):
     master = Tk()
     master.configure(bg="#3569A3")
     Label(master, text='Username',bg="#F1CCD8").grid(row=0)
@@ -20,11 +20,13 @@ def login():
         users = main.get_users()
         for user in users:
             if user.username == username and user.password == password:
+                window.destroy()
                 master.destroy()
                 create_feed(user)
+                
                 return True
         master.destroy()
-        login()
+        login(window)
 
     submit_button = Button(master, text="Submit", command=attempt_login,bg="#F1CCD8")
     submit_button.grid(row=2, columnspan=2)

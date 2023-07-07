@@ -16,6 +16,7 @@ def signUp():
     Label(master, text='Degree Level',bg="#F1CCD8").grid(row=8)
     Label(master, text='Current Occupation',bg="#F1CCD8").grid(row=9)
     Label(master, text='Current Company',bg="#F1CCD8").grid(row=10)
+    Label(master, text='Any struggles in your job search?',bg="#F1CCD8").grid(row=11)
     first_name = StringVar()
     last_name = StringVar()
     age = IntVar()
@@ -27,6 +28,7 @@ def signUp():
     company = StringVar()
     username = StringVar()
     password = StringVar()
+    struggles = StringVar()
     username_entry = Entry(master, textvariable=username)
     password_entry = Entry(master,textvariable=password)
     first_name_entry = Entry(master, textvariable=first_name)
@@ -38,6 +40,7 @@ def signUp():
     degree_entry = Entry(master, textvariable=degree)
     occupation_entry = Entry(master, textvariable=occupation)
     company_entry = Entry(master, textvariable=company)
+    struggles_entry = Entry(master, textvariable=struggles,width=40)
     username_entry.grid(row=2,column=1)
     password_entry.grid(row=3,column=1)
     first_name_entry.grid(row=0, column=1)
@@ -49,7 +52,7 @@ def signUp():
     degree_entry.grid(row=8, column=1)
     occupation_entry.grid(row=9, column=1)
     company_entry.grid(row=10,column=1)
-
+    struggles_entry.grid(row=11,column=1)
     def create_user():  # Use nonlocal to update the global variables
         fname = first_name_entry.get()
         lname = last_name_entry.get()
@@ -67,6 +70,6 @@ def signUp():
         master.destroy()
 
     submit_button = Button(master, text="Submit", command=create_user,bg="#F1CCD8")
-    submit_button.grid(row=11, columnspan=5)
+    submit_button.grid(row=12, columnspan=5)
 
     master.mainloop()

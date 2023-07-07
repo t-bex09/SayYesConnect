@@ -46,7 +46,7 @@ def create_page():
     # Position the frame at the center top
     frame.place(relx=0.5, rely=0, anchor=N)
     # Create the login button
-    login_button = Button(window, text="Login", command=login, width = int(screen_width//100), height=int(screen_height//100),background="#F1CCD8")
+    login_button = Button(window, text="Login", command=lambda:login(window), width = int(screen_width//100), height=int(screen_height//100),background="#F1CCD8")
     login_button.pack(pady=20,expand=False, side=TOP)
     login_button.place(x=int((screen_width//2)-(screen_width//200)-100),y=int(screen_height//2))
     # Create the sign-up button
